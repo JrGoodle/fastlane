@@ -15,28 +15,28 @@ module Spaceship
       # @return (Spaceship::Tunes::Application) A reference to the application
       attr_accessor :application
 
-      # @return (Spaceship::Tunes::IAPFamilies) A reference to the familie list
+      # @return (Spaceship::Tunes::IAPFamilies) A reference to the families list
       def families
         attrs = {}
         attrs[:application] = self.application
         Tunes::IAPFamilies.new(attrs)
       end
 
-      # Creates a new In-App-Purchese on App Store Connect
+      # Creates a new In-App Purchase on App Store Connect
       # if the In-App-Purchase already exists an exception is raised. Spaceship::TunesClient::ITunesConnectError
       # @param type (String): The Type of the in-app-purchase (Spaceship::Tunes::IAPType::CONSUMABLE,Spaceship::Tunes::IAPType::NON_CONSUMABLE,Spaceship::Tunes::IAPType::RECURRING,Spaceship::Tunes::IAPType::NON_RENEW_SUBSCRIPTION)
       # @param versions (Hash): a Hash of the languages
       # @example: {
       #   'de-DE': {
       #     name: "Name shown in AppStore",
-      #     description: "Description of the In app Purchase"
+      #     description: "Description of the In-App Purchase"
       #
       #   }
       # }
       # @param reference_name (String): iTC Reference Name
-      # @param product_id (String): A unique ID for your in-app-purchase
-      # @param bundle_id (String): The bundle ID must match the one you used in Xcode. It
-      # @param cleared_for_sale (Boolean): Is this In-App-Purchase Cleared for Sale
+      # @param product_id (String): A unique ID for your In-App Purchase
+      # @param bundle_id (String): The bundle ID must match the one you used in Xcode
+      # @param cleared_for_sale (Boolean): Is this In-App Purchase Cleared for Sale
       # @param review_notes (String): Review Notes
       # @param review_screenshot (String): Path to the screenshot (should be 640x940 PNG)
       # @param pricing_intervals (Hash): a Hash of the languages
